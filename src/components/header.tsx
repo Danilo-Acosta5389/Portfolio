@@ -1,0 +1,99 @@
+"use client";
+import { useEffect, useState } from "react";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenuToggle,
+  NavbarMenu,
+  NavbarMenuItem,
+  Link,
+} from "@heroui/react";
+import { Moon, Sun } from "lucide-react";
+import { useThemeContext } from "@/context/theme-context";
+
+export default function Header() {
+  const { theme, setTheme } = useThemeContext();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuItems = ["home", "about", "projects", "contact"];
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const handleThemeToggle = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+
+  return (
+    <>
+      <Navbar
+        onMenuOpenChange={setIsMenuOpen}
+        isBordered
+        shouldHideOnScroll
+        className={`${theme} bg-background text-foreground fixed z-50 top-[-0.5px] w-full`}
+      >
+        <div className="flex flex-row justify-between max-w-7xl w-full">
+          <NavbarContent className=" flex flex-row">
+            <NavbarBrand>
+              <p className=" font-bold text-inherit">DA</p>
+            </NavbarBrand>
+            <NavbarItem
+              className="block sm:hidden cursor-pointer"
+              onClick={handleThemeToggle}
+            >
+              {theme === "dark" ? <Sun /> : <Moon />}
+            </NavbarItem>
+            <NavbarMenuToggle
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              className="sm:hidden h-8 w-8"
+            />
+          </NavbarContent>
+
+          <NavbarContent className="hidden sm:flex gap-4" justify="center">
+            <NavbarItem>
+              <Link color="foreground" href="#">
+                home
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link color="foreground" href="#">
+                about
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link color="foreground" href="#">
+                projects
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link color="foreground" href="#">
+                contact
+              </Link>
+            </NavbarItem>
+            <NavbarItem
+              className="hidden sm:block cursor-pointer"
+              onClick={handleThemeToggle}
+            >
+              {theme === "dark" ? <Sun /> : <Moon />}
+            </NavbarItem>
+          </NavbarContent>
+          <NavbarMenu className={`${theme} pt-3 space-y-1`}>
+            {menuItems.map((item, index) => (
+              <NavbarMenuItem key={`${item}-${index}`}>
+                <Link
+                  className=" hover:text-red-700 w-full text-2xl text-foreground flex justify-end"
+                  href="#"
+                  size="lg"
+                >
+                  {item}
+                </Link>
+              </NavbarMenuItem>
+            ))}
+          </NavbarMenu>
+        </div>
+      </Navbar>
+    </>
+  );
+}
