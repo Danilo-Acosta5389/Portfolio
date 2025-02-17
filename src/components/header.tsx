@@ -33,14 +33,14 @@ export default function Header() {
         onMenuOpenChange={setIsMenuOpen}
         isBordered
         shouldHideOnScroll
-        className={`${theme} bg-background text-foreground fixed z-50 top-[-0.5px] w-full`}
+        className={`${theme} bg-background text-foreground fixed z-40 top-[-0.5px] w-full`}
       >
         <div className="flex flex-row justify-between max-w-7xl w-full">
           <NavbarContent className=" flex flex-row">
             <NavbarBrand>
               <p
                 className={clsx(
-                  "font-bold text-inherit border-light border-2 rounded-full p-2 absolute top-3",
+                  "font-bold text-inherit border-2 rounded-full p-2 absolute top-3",
                   {
                     "font-bold text-inherit border-black border-2 rounded-full p-2 absolute top-3":
                       theme === "light",
