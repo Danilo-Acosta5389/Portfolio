@@ -38,7 +38,8 @@ export default function Header() {
           <NavbarContent className=" flex flex-row">
             <NavbarBrand className=" px-0">
               <p className=" font-sans font-semibold text-inherit cursor-pointer px-0">
-                <span className=" text-green-600">root@DaniloAcosta:</span>
+                <span className=" text-green-600">root@DaniloAcosta</span>
+                <span className="text-foreground px-[3px]">:</span>
                 <span className="  text-blue-700">~ $</span>
                 <span className=" animate-blink text-2xl font-extrabold pl-1">
                   _
