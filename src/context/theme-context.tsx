@@ -9,6 +9,7 @@ import {
   useState,
   useEffect,
 } from "react";
+import BackgroundColorSetter from "./root-color-context";
 
 type ThemeContextType = {
   theme: string;
@@ -29,7 +30,6 @@ export default function ThemeContextProvider({
   useEffect(() => {
     // First, try to load from localStorage
     const savedTheme = localStorage.getItem("theme");
-
     // If we have a saved theme, use it
     if (savedTheme) {
       setTheme(savedTheme);
@@ -39,9 +39,19 @@ export default function ThemeContextProvider({
         "(prefers-color-scheme: dark)"
       ).matches;
       setTheme(prefersDark ? "dark" : "light");
-
       // Save the chosen theme to localStorage
+
       localStorage.setItem("theme", prefersDark ? "dark" : "light");
+      const htmlElement = document.getElementById("html");
+      if (prefersDark) {
+        if (htmlElement) {
+          htmlElement.style.backgroundColor = "black";
+        }
+      } else {
+        if (htmlElement) {
+          htmlElement.style.backgroundColor = "white";
+        }
+      }
     }
   }, []);
 
@@ -51,7 +61,7 @@ export default function ThemeContextProvider({
   }
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      {children}
+      <BackgroundColorSetter theme={theme}>{children}</BackgroundColorSetter>
     </ThemeContext.Provider>
   );
 }
