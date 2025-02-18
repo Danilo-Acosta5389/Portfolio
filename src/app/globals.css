@@ -10,6 +10,12 @@ body {
   scroll-behavior: smooth;
 }
 
+.small-screen {
+  @media screen and (max-height: 650px) {
+    display: none;
+  }
+}
+
 body {
   overscroll-behavior: none;
 
