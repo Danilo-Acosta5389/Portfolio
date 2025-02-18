@@ -8,10 +8,10 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
-  Link,
 } from "@heroui/react";
 import { Moon, Sun } from "lucide-react";
 import { useThemeContext } from "@/context/theme-context";
+import Link from "next/link";
 
 export default function Header() {
   const { theme, setTheme } = useThemeContext();
@@ -32,19 +32,23 @@ export default function Header() {
         onMenuOpenChange={setIsMenuOpen}
         isBordered
         shouldHideOnScroll
-        className={`${theme} bg-background text-foreground sticky z-40 top-[-0.5px] w-full`}
+        maxWidth="xl"
+        className={`${theme} bg-background text-foreground fixed z-40 top-[-0.5px] w-full`}
       >
         <div className="flex flex-row justify-between max-w-7xl w-full">
           <NavbarContent className=" flex flex-row">
             <NavbarBrand className=" px-0">
-              <p className=" font-sans font-semibold text-inherit cursor-pointer px-0">
+              <Link
+                href={"#top"}
+                className=" font-sans font-semibold text-inherit cursor-pointer px-0"
+              >
                 <span className=" text-green-600">root@DaniloAcosta</span>
-                <span className="text-foreground px-[3px]">:</span>
+                <span className="text-foreground px-[1px]">:</span>
                 <span className="  text-blue-700">~ $</span>
                 <span className=" animate-blink text-2xl font-extrabold pl-1">
                   _
                 </span>
-              </p>
+              </Link>
             </NavbarBrand>
             <NavbarItem
               className="block sm:hidden cursor-pointer"
@@ -92,7 +96,6 @@ export default function Header() {
                 <Link
                   className=" hover:text-red-700 w-full text-2xl text-foreground flex justify-end"
                   href="#"
-                  size="lg"
                 >
                   {item}
                 </Link>
