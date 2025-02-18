@@ -32,7 +32,7 @@ export default function Header() {
         onMenuOpenChange={setIsMenuOpen}
         isBordered
         shouldHideOnScroll
-        className={`${theme} bg-background text-foreground fixed z-40 top-[-0.5px] w-full`}
+        className={`${theme} bg-background text-foreground sticky z-40 top-[-0.5px] w-full`}
       >
         <div className="flex flex-row justify-between max-w-7xl w-full">
           <NavbarContent className=" flex flex-row">
