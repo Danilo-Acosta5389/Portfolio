@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Preload />
-      <main className="h-full w-full bg-white">
+      <main className="h-full w-full">
         <Header />
         <Hero />
         {/* <div className=" h-full w-full  bg-white bg-grid-black/[0.2] flex items-center justify-center">
