@@ -3,7 +3,7 @@
 import { ReactNode, useContext, useEffect } from "react";
 import { ThemeContext } from "./theme-context";
 
-export default function BackgroundColorSetter({
+export default function RootColorSetter({
   theme,
   children,
 }: {
@@ -20,11 +20,11 @@ export default function BackgroundColorSetter({
   return <>{children}</>;
 }
 
-export function useBackgroundColorContext() {
+export function useRootColorContext() {
   const context = useContext(ThemeContext);
   if (!context) {
     throw new Error(
-      "useThemeContext must be used within a ThemeContextProvider"
+      "useRootColorContext must be used within a RootColorSetter"
     );
   }
   return context;

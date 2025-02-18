@@ -9,7 +9,7 @@ import {
   useState,
   useEffect,
 } from "react";
-import BackgroundColorSetter from "./root-color-context";
+import RootColorSetter from "./root-color-context";
 
 type ThemeContextType = {
   theme: string;
@@ -61,7 +61,7 @@ export default function ThemeContextProvider({
   }
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <BackgroundColorSetter theme={theme}>{children}</BackgroundColorSetter>
+      <RootColorSetter theme={theme}>{children}</RootColorSetter>
     </ThemeContext.Provider>
   );
 }
