@@ -12,7 +12,6 @@ import {
 } from "@heroui/react";
 import { Moon, Sun } from "lucide-react";
 import { useThemeContext } from "@/context/theme-context";
-import clsx from "clsx";
 
 export default function Header() {
   const { theme, setTheme } = useThemeContext();
@@ -37,17 +36,13 @@ export default function Header() {
       >
         <div className="flex flex-row justify-between max-w-7xl w-full">
           <NavbarContent className=" flex flex-row">
-            <NavbarBrand>
-              <p
-                className={clsx(
-                  "font-bold text-inherit border-2 rounded-full p-2 absolute top-3",
-                  {
-                    "font-bold text-inherit border-black border-2 rounded-full p-2 absolute top-3":
-                      theme === "light",
-                  }
-                )}
-              >
-                DA
+            <NavbarBrand className=" px-0">
+              <p className=" font-sans font-semibold text-inherit cursor-pointer px-0">
+                <span className=" text-green-600">root@DaniloAcosta:</span>
+                <span className="  text-blue-700">~ $</span>
+                <span className=" animate-blink text-2xl font-extrabold pl-1">
+                  _
+                </span>
               </p>
             </NavbarBrand>
             <NavbarItem

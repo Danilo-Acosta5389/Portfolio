@@ -11,7 +11,8 @@ export default function Preload() {
   const { theme } = useThemeContext();
   const [showIntro, setShowIntro] = useState<boolean>(false);
   const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [visibleLetters, setVisibleLetters] = useState<string[]>([]);
+  //const [visibleLetters, setVisibleLetters] = useState<string[]>([]);
+  const text = "DaniloAcosta.dev";
 
   useEffect(() => {
     const hasSeenIntro = sessionStorage.getItem("hasSeenIntro");
@@ -22,89 +23,50 @@ export default function Preload() {
       setIsVisible(true);
       setShowIntro(true);
 
-      setTimeout(() => setShowIntro(false), 3000);
-      setTimeout(() => setIsVisible(false), 5000);
+      setTimeout(() => setShowIntro(false), 2000);
+      setTimeout(() => setIsVisible(false), 3000);
     }
-  }, []);
-
-  useEffect(() => {
-    const letters = [
-      "",
-      "D",
-      "a",
-      "n",
-      "i",
-      "l",
-      "o",
-      "A",
-      "c",
-      "o",
-      "s",
-      "t",
-      "a",
-      ".",
-      "d",
-      "e",
-      "v",
-    ];
-    let currentIndex = 0;
-
-    const typeLetter = () => {
-      if (currentIndex >= letters.length + 1) return;
-
-      setVisibleLetters((prev) => [...prev, letters[currentIndex]]);
-      currentIndex++;
-
-      // Schedule next letter
-      setTimeout(typeLetter, 100); // Adjust timing as needed
-    };
-
-    // Start typing animation
-    typeLetter();
-
-    // Cleanup
-    return () => {
-      currentIndex = letters.length; // Stop any pending timeouts
-    };
   }, []);
 
   return (
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          transition={{ duration: 2 }}
+          transition={{ duration: 1 }}
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className={clsx(
-            `${theme} pointer-events-none bg-background text-foreground w-full h-full absolute z-50 top-0 bottom-0 flex flex-col justify-center items-center`,
+            `${theme} pointer-events-none bg-background text-foreground w-screen h-screen fixed z-50 top-0 flex flex-col justify-center items-center`,
             {
               hidden: !isVisible,
             }
           )}
         >
-          <AnimatePresence>
-            {showIntro && (
-              <motion.div
-                transition={{ duration: 2 }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="text-2xl flex flex-row justify-center items-center"
-              >
-                {visibleLetters.map((letter, i) => (
-                  <motion.div
-                    transition={{ duration: 0.2 }}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    key={i}
-                    className="text-2xl"
-                  >
-                    {letter}
-                  </motion.div>
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <div>
+            <AnimatePresence>
+              {showIntro && (
+                <motion.div
+                  transition={{ duration: 1 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className=" text-2xl"
+                >
+                  {text.split("").map((letter, i) => (
+                    <motion.span
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.1, delay: i * 0.1 }}
+                      key={i}
+                      className=""
+                    >
+                      {letter}
+                    </motion.span>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
