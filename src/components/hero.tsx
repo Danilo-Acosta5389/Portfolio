@@ -68,7 +68,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           transition={{ delay: 2 }}
           whileInView={{ opacity: 1 }}
-          className=" small-screen"
+          className=" small-screen pb-5"
         >
           <Link
             className="text-lg flex flex-col justify-center items-center"
