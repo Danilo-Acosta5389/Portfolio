@@ -14,7 +14,7 @@ export default function Hero() {
       id="top"
       className={`${theme} bg-background text-foreground w-full h-full flex flex-col justify-center items-center`}
     >
-      <div className=" max-w-5xl w-full items-center h-screen flex flex-col justify-between">
+      <div className=" max-w-5xl w-full h-screen flex flex-col justify-between items-center">
         <div>
           <span className=" sr-only">place holder</span>
         </div>
@@ -50,6 +50,9 @@ export default function Hero() {
             </motion.div>
           </div>
         </div>
+        <div className="small-screen">
+          <span className=" sr-only">place holder</span>
+        </div>
         {/* <motion.span
                 initial={{ opacity: 0 }}
                 transition={{ delay: 2 }}
@@ -68,10 +71,10 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           transition={{ delay: 2 }}
           whileInView={{ opacity: 1 }}
-          className=" small-screen"
+          className=" small-screen absolute bottom-10"
         >
           <Link
-            className="text-lg flex flex-col justify-center items-center"
+            className="text-md flex flex-col justify-center items-center"
             color="foreground"
             href="#about"
           >
@@ -85,10 +88,13 @@ export default function Hero() {
                 duration: 1,
               }}
             >
-              <ArrowDown size={40} className=" m-5" />
+              <ArrowDown size={30} className=" m-3" />
             </motion.div>
           </Link>
         </motion.div>
+        <div className="small-screen">
+          <span className=" sr-only">place holder</span>
+        </div>
       </div>
     </section>
   );
