@@ -14,8 +14,11 @@ export default function Hero() {
       id="top"
       className={`${theme} bg-background text-foreground w-full h-full flex flex-col justify-center items-center`}
     >
-      <div className=" max-w-5xl w-full items-center h-screen flex flex-col justify-around py-10">
-        <div className=" flex sm:flex-row flex-col px-10 sm:px-0 sm:pb-0">
+      <div className=" max-w-5xl w-full items-center h-screen flex flex-col justify-between">
+        <div>
+          <span className=" sr-only">place holder</span>
+        </div>
+        <div className=" flex sm:flex-row flex-col sm:space-x-10 px-5 sm:pb-0">
           <motion.div
             transition={{ duration: 1 }}
             initial={{ opacity: 0, x: -60 }}
@@ -32,16 +35,16 @@ export default function Hero() {
               width={240}
             />
           </motion.div>
-          <div className=" mt-10 sm:mt-20 flex flex-col text-lg sm:text-2xl font-mono">
+          <div className=" space-y-1 sm:mt-20 sd:ml-24 flex flex-col text-lg sm:text-2xl font-mono">
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-              <TypingEffect text={"Hello👋"} className={" md:ml-24"} />
+              <TypingEffect text={"Hello👋"} className={""} />
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 1 }}
             >
-              <h2 className=" md:ml-24 break-normal">
+              <h2 className=" break-normal">
                 Welcome to my portfolio website!
               </h2>
             </motion.div>
@@ -68,7 +71,7 @@ export default function Hero() {
           className=" small-screen"
         >
           <Link
-            className="text-lg flex flex-col place-self-center justify-center items-center"
+            className="text-lg flex flex-col justify-center items-center"
             color="foreground"
             href="#about"
           >
