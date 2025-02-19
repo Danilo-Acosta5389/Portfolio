@@ -71,7 +71,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           transition={{ delay: 2 }}
           whileInView={{ opacity: 1 }}
-          className=" small-screen absolute bottom-1"
+          className=" small-screen absolute bottom-0"
         >
           <Link
             className="text-md flex flex-col justify-center items-center"
