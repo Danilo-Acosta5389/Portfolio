@@ -15,13 +15,13 @@ export default function Hero() {
       className={`${theme} bg-background text-foreground w-full h-full flex flex-col justify-center items-center`}
     >
       <div className=" max-w-5xl w-full items-center h-screen flex flex-col justify-around py-10">
-        <div className=" flex md:flex-row flex-col px-10 md:px-0 md:pb-0">
+        <div className=" flex sm:flex-row flex-col px-10 sm:px-0 sm:pb-0">
           <motion.div
             transition={{ duration: 1 }}
             initial={{ opacity: 0, x: -60 }}
             whileInView={{ x: -40, opacity: 1 }}
             viewport={{ once: true }}
-            className=" flex md:flex-row flex-col justify-center items-center"
+            className=" flex justify-center items-center"
           >
             <Image
               isBlurred
@@ -32,7 +32,7 @@ export default function Hero() {
               width={240}
             />
           </motion.div>
-          <div className=" mt-10 md:mt-20 flex flex-col text-lg md:text-2xl font-mono">
+          <div className=" mt-10 sm:mt-20 flex flex-col text-lg sm:text-2xl font-mono">
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               <TypingEffect text={"Hello👋"} className={" md:ml-24"} />
             </motion.div>
@@ -65,7 +65,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           transition={{ delay: 2 }}
           whileInView={{ opacity: 1 }}
-          className=""
+          className=" small-screen"
         >
           <Link
             className="text-lg flex flex-col place-self-center justify-center items-center"
