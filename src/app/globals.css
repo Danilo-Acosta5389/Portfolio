@@ -11,7 +11,7 @@ body {
 }
 
 .small-screen {
-  @media screen and (max-height: 650px) {
+  @media screen and (max-height: 500px) {
     display: none;
   }
 }
