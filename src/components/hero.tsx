@@ -35,7 +35,7 @@ export default function Hero() {
               width={240}
             />
           </motion.div>
-          <div className=" space-y-1 sm:mt-20 sd:ml-24 flex flex-col text-lg sm:text-2xl font-mono">
+          <div className=" space-y-1 sm:mt-20 sd:ml-24 flex flex-col text-xl sm:text-2xl font-mono">
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               <TypingEffect text={"Hello👋"} className={""} />
             </motion.div>
@@ -71,7 +71,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           transition={{ delay: 2 }}
           whileInView={{ opacity: 1 }}
-          className=" small-screen absolute bottom-10"
+          className=" small-screen absolute bottom-5"
         >
           <Link
             className="text-md flex flex-col justify-center items-center"
