@@ -36,7 +36,7 @@ export default function Header() {
         onMenuOpenChange={setIsMenuOpen}
         isMenuOpen={isMenuOpen}
         isBordered
-        shouldHideOnScroll
+        // shouldHideOnScroll
         maxWidth="xl"
         className={`${theme} bg-background text-foreground fixed z-40 top-[-0.5px] w-full`}
       >
