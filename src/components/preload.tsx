@@ -11,20 +11,20 @@ export default function Preload() {
   const { theme } = useThemeContext();
   const [showIntro, setShowIntro] = useState<boolean>(false);
   const [isVisible, setIsVisible] = useState<boolean>(false);
-  //const [visibleLetters, setVisibleLetters] = useState<string[]>([]);
   const text = "DaniloAcosta.dev";
 
   useEffect(() => {
     const hasSeenIntro = sessionStorage.getItem("hasSeenIntro");
 
     if (!hasSeenIntro) {
-      sessionStorage.setItem("hasSeenIntro", "true");
-
       setIsVisible(true);
       setShowIntro(true);
 
       setTimeout(() => setShowIntro(false), 2000);
-      setTimeout(() => setIsVisible(false), 3000);
+      setTimeout(() => {
+        sessionStorage.setItem("hasSeenIntro", "true");
+        setIsVisible(false);
+      }, 3000);
     }
   }, []);
 
