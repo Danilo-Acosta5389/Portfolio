@@ -14,8 +14,8 @@ export default function Hero() {
       id="top"
       className={`${theme} bg-background text-foreground w-full h-full flex flex-col justify-center items-center`}
     >
-      <div className=" max-w-5xl w-full justify-center items-center h-screen flex flex-col">
-        <div className=" flex md:flex-row flex-col px-10 md:px-0 pb-56 md:pb-0">
+      <div className=" max-w-5xl w-full items-center h-screen flex flex-col justify-around py-10">
+        <div className=" flex md:flex-row flex-col px-10 md:px-0 md:pb-0">
           <motion.div
             transition={{ duration: 1 }}
             initial={{ opacity: 0, x: -60 }}
@@ -32,7 +32,7 @@ export default function Hero() {
               width={240}
             />
           </motion.div>
-          <div className=" mt-10 md:mt-20 flex flex-col text-2xl font-mono ml-5">
+          <div className=" mt-10 md:mt-20 flex flex-col text-lg md:text-2xl font-mono">
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               <TypingEffect text={"Hello👋"} className={" md:ml-24"} />
             </motion.div>
@@ -65,7 +65,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           transition={{ delay: 2 }}
           whileInView={{ opacity: 1 }}
-          className=" small-screen absolute bottom-0 left-1/2 right-1/2"
+          className=""
         >
           <Link
             className="text-lg flex flex-col place-self-center justify-center items-center"
@@ -79,7 +79,7 @@ export default function Hero() {
               transition={{
                 repeat: Infinity,
                 repeatDelay: 1,
-                duration: 0.5,
+                duration: 1,
               }}
             >
               <ArrowDown size={40} className=" m-5" />

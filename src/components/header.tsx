@@ -26,10 +26,15 @@ export default function Header() {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
+  useEffect(() => {
+    console.log("Menu is open:", isMenuOpen);
+  }, [isMenuOpen]);
+
   return (
     <>
       <Navbar
         onMenuOpenChange={setIsMenuOpen}
+        isMenuOpen={isMenuOpen}
         isBordered
         shouldHideOnScroll
         maxWidth="xl"
@@ -57,6 +62,9 @@ export default function Header() {
               {theme === "dark" ? <Sun /> : <Moon />}
             </NavbarItem>
             <NavbarMenuToggle
+              onClick={() => {
+                setIsMenuOpen(!isMenuOpen);
+              }}
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               className="sm:hidden h-8 w-8"
             />
@@ -64,7 +72,7 @@ export default function Header() {
 
           <NavbarContent className="hidden sm:flex gap-4" justify="center">
             <NavbarItem>
-              <Link color="foreground" href="#">
+              <Link color="foreground" href="#top">
                 home
               </Link>
             </NavbarItem>
@@ -94,8 +102,11 @@ export default function Header() {
             {menuItems.map((item, index) => (
               <NavbarMenuItem key={`${item}-${index}`}>
                 <Link
+                  onClick={() => {
+                    setIsMenuOpen(!isMenuOpen);
+                  }}
                   className=" hover:text-red-700 w-full text-2xl text-foreground flex justify-end"
-                  href="#"
+                  href={`#${item}`}
                 >
                   {item}
                 </Link>
