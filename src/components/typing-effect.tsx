@@ -42,6 +42,7 @@ export function TypingEffectWhileInView({
           key={index}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.1, delay: index * 0.1 }}
         >
           {letter}

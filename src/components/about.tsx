@@ -2,9 +2,7 @@
 
 import { useThemeContext } from "@/context/theme-context";
 import React from "react";
-import { FlipWords } from "./flip-words";
 import { motion } from "motion/react";
-import { TechIcons } from "./tech-icons";
 import { InfiniteMovingLogos } from "./infinite-moving-logos";
 import { TypingEffectWhileInView } from "./typing-effect";
 
@@ -60,7 +58,7 @@ export default function About() {
         </p>
       </motion.div>
       <div className="pt-20 pb-10">
-        <h1 className="text-4xl font-semibold">Stuff i've used</h1>
+        <h1 className="text-4xl font-semibold">Stuff i use</h1>
 
         {/* <TechIcons /> */}
       </div>

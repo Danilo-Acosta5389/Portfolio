@@ -1,6 +1,6 @@
 "use client";
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, LayoutGroup } from "framer-motion";
+import React, { useCallback, useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useThemeContext } from "@/context/theme-context";
 
@@ -97,11 +97,9 @@ export const FlipWordsEffect = ({
 
 export function FlipWords({
   words,
-  text,
   className,
 }: {
   words: string[];
-  text?: string;
   className?: string;
 }) {
   const { theme } = useThemeContext();
