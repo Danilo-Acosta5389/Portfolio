@@ -20,9 +20,16 @@ export default {
           "0%,100%": { opacity: "1" },
           "50%": { opacity: "0" },
         },
+        scroll: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
+        },
       },
       animation: {
         blink: "blink 1s infinite",
+        scroll:
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
     },
   },
@@ -54,13 +61,13 @@ export default {
 } satisfies Config;
 
 // This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
-function addVariablesForColors({ addBase, theme }: any) {
-  let allColors = flattenColorPalette(theme("colors"));
-  let newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-  );
+// function addVariablesForColors({ addBase, theme }: any) {
+//   let allColors = flattenColorPalette(theme("colors"));
+//   let newVars = Object.fromEntries(
+//     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+//   );
 
-  addBase({
-    ":root": newVars,
-  });
-}
+//   addBase({
+//     ":root": newVars,
+//   });
+// }
