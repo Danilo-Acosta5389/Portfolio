@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroui/accordion": "^2.2.11",
     "@heroui/image": "^2.2.7",
     "@heroui/modal": "^2.2.11",
     "@heroui/navbar": "^2.2.9",

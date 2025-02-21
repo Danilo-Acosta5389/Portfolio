@@ -23,6 +23,7 @@ export const Card = React.memo(
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.7 }}
       onMouseEnter={() => setHovered(index)}
       onMouseLeave={() => setHovered(null)}
       className={cn(
@@ -48,7 +49,7 @@ export const Card = React.memo(
         <PortfolioModal
           className={cn(
             "transition-opacity duration-300",
-            hovered === index ? "opacity-100" : "opacity-0"
+            hovered === index ? "opacity-100" : "opacity-0 pointer-events-none"
           )}
           card={card}
         />
