@@ -11,7 +11,10 @@ export default function Projects() {
       id="projects"
       className={`${theme} h-full w-full bg-background text-foreground font-mono flex flex-col justify-center items-center py-20 space-y-10`}
     >
-      <h1 className="text-4xl font-semibold"> {"Things i've built"}</h1>
+      <h1 className="text-3xl sm:text-4xl font-semibold">
+        {" "}
+        {"Things i've built"}
+      </h1>
       <FocusCards />
     </section>
   );
