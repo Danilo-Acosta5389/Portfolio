@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
