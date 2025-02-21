@@ -3,8 +3,9 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
-import { Button } from "@heroui/react";
+
 import { useThemeContext } from "@/context/theme-context";
+import PortfolioModal from "./portfolio-modal";
 
 export const Card = React.memo(
   ({
@@ -25,7 +26,7 @@ export const Card = React.memo(
       onMouseEnter={() => setHovered(index)}
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        " cursor-pointer rounded-lg relative bg-gray-100 dark:bg-neutral-900 overflow-hidden h-60 md:h-96 w-full transition-all duration-300 ease-out",
+        "rounded-lg relative bg-gray-100 dark:bg-neutral-900 overflow-hidden h-60 md:h-96 w-full transition-all duration-300 ease-out",
         hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
       )}
     >
@@ -44,14 +45,13 @@ export const Card = React.memo(
         <div className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-200  my-6 border-2 border-transparent px-4 py-1 rounded-3xl">
           {card.title}
         </div>
-        <Button
+        <PortfolioModal
           className={cn(
             "transition-opacity duration-300",
             hovered === index ? "opacity-100" : "opacity-0"
           )}
-        >
-          See more
-        </Button>
+          card={card}
+        />
       </div>
     </motion.div>
   )
@@ -59,9 +59,13 @@ export const Card = React.memo(
 
 Card.displayName = "Card";
 
-type Card = {
+export type Card = {
   title: string;
+  description?: string;
   src: string;
+  website?: string;
+  github?: string;
+  collab?: { name: string; link: string };
 };
 
 export function FocusCards() {
@@ -70,15 +74,34 @@ export function FocusCards() {
   const cards = [
     {
       title: "Portfolio",
+      description:
+        "This is my portfolio website, the one you are obviously in right now. Congratulations on finding this, btw. It exists for the obvious reason—I want to show you what I can do. This project was created using Next.js, and it is indeed a full-stack project since it handles both front-end and back-end functionality. It utilizes a whole bunch of React libraries, as you can imagine, considering all the special effects and whatnot. Some of the libraries are: clsx, shadcn/ui, HeroUI, Aceternity, Motion, TailwindCSS, and probably more.",
       src: "/portfolio-image.png",
+      website: "#",
+      github: "https://github.com/Danilo-Acosta5389/Portfolio",
     },
     {
       title: "Vivo Consulting",
+      description:
+        "This website was designed by my good friend and colleague, Felicia Avila Förnerud, and built by me. This project is a website for the company Vivo Nurse Consulting AB, which is based in Stockholm, Sweden. The website is simple yet functional; it is informative, and you can also email them using the form at the very end of the page. The website utilizes Google's ReCAPTCHA v3 to protect against bots. The project was made with Next.js and uses libraries such as TailwindCSS, Material UI, Motion, ShadCN/UI, google-recaptcha-v3, and more.",
       src: "/vivo-image.png",
+      website: "https://dev-vivoconsulting.ddns.net/",
+      github: "https://github.com/Danilo-Acosta5389/Vivo-Consulting-AB",
+      collab: {
+        name: "Felicia Förnerud",
+        link: "https://www.feliciafornerud.com/",
+      },
     },
     {
       title: "Forum",
+      description: `This is my forum project, which was originally my final exam project. It is a full-stack application that handles users, authentication, and cookies. Essentially, it is a forum with topics, posts, and comments.
+
+If you want to interact with the forum, you must create an account and log in (always check your junk mail for the activation code). As a new user, you will be given the role of "User," which allows you to create new posts and comment on existing ones. There are several other roles in the system, such as "Creator," "Admin," and "Super." All roles have default functionality but can also perform actions like upgrading users, blocking users, and hiding posts, comments, and topics.
+
+Users can also report content and edit their personal profile page. This project is built with .NET 8 / ASP.NET and C# on the back end and React with TypeScript and Turborepo on the front end. It uses libraries such as ShadCN/UI, Vite, TanStack Router, and more.`,
       src: "/wis-image.png",
+      website: "https://whatisspace.online",
+      github: "https://github.com/Danilo-Acosta5389/Forum",
     },
   ];
   //CSS before i changed to flex
