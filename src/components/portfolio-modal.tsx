@@ -52,7 +52,7 @@ export default function PortfolioModal({
                   className="flex font-light text-small gap-2"
                 >
                   <span className="flex flex-col justify-center">
-                    view source code {"-->"}
+                    source code {"-->"}
                   </span>
                   <svg
                     width="25"
@@ -83,7 +83,7 @@ export default function PortfolioModal({
                     </Link>
                   )}
                 </div>
-                <div className="space-x-3">
+                <div className="sm:space-x-3 whitespace-nowrap">
                   <Button color="danger" variant="light" onPress={onClose}>
                     Close
                   </Button>
