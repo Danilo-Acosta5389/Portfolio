@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import HeroUIProvider from "../context/hero-ui-provider";
 import ThemeContextProvider from "@/context/theme-context";
+import ReCaptchaProvider from "@/context/recaptcha-provide";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,9 +30,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <HeroUIProvider>
-          <ThemeContextProvider>{children}</ThemeContextProvider>
-        </HeroUIProvider>
+        <ReCaptchaProvider>
+          <HeroUIProvider>
+            <ThemeContextProvider>{children}</ThemeContextProvider>
+          </HeroUIProvider>
+        </ReCaptchaProvider>
       </body>
     </html>
   );
