@@ -13,7 +13,7 @@ export default function Hero() {
 
   useEffect(() => {
     const hasSeenIntro = sessionStorage.getItem("hasSeenIntro");
-    console.log("Found hasSeenIntro?", hasSeenIntro);
+    //console.log("Found hasSeenIntro?", hasSeenIntro);
     if (!hasSeenIntro) {
       setTimeout(() => setIsVisible(true), 3000);
     } else {

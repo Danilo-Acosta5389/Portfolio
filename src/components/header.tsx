@@ -27,7 +27,7 @@ export default function Header() {
   };
 
   useEffect(() => {
-    console.log("Menu is open:", isMenuOpen);
+    //console.log("Menu is open:", isMenuOpen);
   }, [isMenuOpen]);
 
   return (

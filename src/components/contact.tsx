@@ -28,14 +28,14 @@ export default function Contact() {
       number: formData.get("number") as string,
       message: formData.get("message") as string,
     };
-    console.log(rawData);
+    //console.log(rawData);
     try {
       if (!executeRecaptcha) {
         return initialState;
       }
 
       const token = await executeRecaptcha("form_submit");
-      console.log("Token:", token);
+      //console.log("Token:", token);
       const response = await fetch("/api/verify-recaptcha", {
         method: "POST",
         headers: {
@@ -43,9 +43,9 @@ export default function Contact() {
         },
         body: JSON.stringify({ token }),
       });
-      console.log(response);
+      //console.log(response);
       const data = await response.json();
-      console.log(data);
+      //console.log(data);
       if (!data.success) {
         console.log("An error ocurred when virefying with reCAPTCHA");
         return {
