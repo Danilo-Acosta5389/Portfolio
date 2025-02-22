@@ -71,7 +71,7 @@ export default function Header() {
             />
           </NavbarContent>
 
-          <NavbarContent className="hidden sm:flex gap-4" justify="center">
+          <NavbarContent className="hidden sm:flex gap-4 pt-2" justify="center">
             <NavbarItem>
               <Link color="foreground" href="#top">
                 home

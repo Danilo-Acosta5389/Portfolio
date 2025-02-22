@@ -2,7 +2,7 @@
 
 import { useThemeContext } from "@/context/theme-context";
 import React from "react";
-import { FocusCards } from "./focus-cards";
+import { FocusCards } from "@/components/ui/focus-cards";
 import { motion } from "motion/react";
 
 export default function Projects() {
@@ -16,7 +16,7 @@ export default function Projects() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="text-3xl sm:text-4xl font-semibold mb-20 mt-10"
+        className="text-3xl sm:text-4xl font-semibold pb-5 mt-10"
       >
         {" "}
         {"Things i've built"}

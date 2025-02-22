@@ -76,7 +76,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className={`${theme} h-screen w-full bg-background text-foreground font-mono flex flex-col justify-center items-center py-20 pb-40`}
+      className={`${theme} h-full w-full bg-background text-foreground font-mono flex flex-col justify-center items-center py-40`}
     >
       {submitted ? (
         <div className="flex flex-col justify-center items-center px-8 space-y-10">
@@ -90,7 +90,12 @@ export default function Contact() {
         </div>
       ) : (
         <>
-          <h1 className="text-3xl sm:text-4xl font-mono py-10">Contact</h1>
+          <div className=" max-w-72 font-mono py-5 space-y-3 text-center">
+            <h1 className="text-3xl sm:text-4xl">Contact</h1>
+            <p className="">
+              Anything i can do for you? Just leave me a messege!
+            </p>
+          </div>
           <Form action={action} className="w-full h-full max-w-xs space-y-2">
             <Input
               disabled={isPending}

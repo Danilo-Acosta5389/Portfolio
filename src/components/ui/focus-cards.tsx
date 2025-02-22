@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 
 import { useThemeContext } from "@/context/theme-context";
-import PortfolioModal from "./portfolio-modal";
+import PortfolioModal from "@/components/ui/portfolio-modal";
 
 export const Card = React.memo(
   ({

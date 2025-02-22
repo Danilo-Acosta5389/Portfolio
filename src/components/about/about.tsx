@@ -3,8 +3,8 @@
 import { useThemeContext } from "@/context/theme-context";
 import React from "react";
 import { motion } from "motion/react";
-import { InfiniteMovingLogos } from "./infinite-moving-logos";
-import { TypingEffectWhileInView } from "./typing-effect";
+import { InfiniteMovingLogos } from "@/components/ui/infinite-moving-logos";
+import { TypingEffectWhileInView } from "../ui/typing-effect";
 import { Accordion, AccordionItem } from "@heroui/accordion";
 
 export default function About() {
