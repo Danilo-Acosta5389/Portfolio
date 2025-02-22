@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 
 import { useThemeContext } from "@/context/theme-context";
-import PortfolioModal from "./portfolio-modal";
+import PortfolioModal from "@/components/ui/portfolio-modal";
 
 export const Card = React.memo(
   ({
@@ -13,6 +13,7 @@ export const Card = React.memo(
     index,
     hovered,
     setHovered,
+    theme,
   }: {
     card: Card;
     index: number;
@@ -47,6 +48,7 @@ export const Card = React.memo(
           {card.title}
         </div>
         <PortfolioModal
+          theme={theme}
           className={cn(
             "transition-opacity duration-300",
             hovered === index ? "opacity-100" : "opacity-0 pointer-events-none"

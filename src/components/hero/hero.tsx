@@ -5,7 +5,7 @@ import { Image } from "@heroui/react";
 import { motion } from "motion/react";
 import { ArrowDown, Mail } from "lucide-react";
 import Link from "next/link";
-import TypingEffect from "./typing-effect";
+import TypingEffect from "../ui/typing-effect";
 
 export default function Hero() {
   const { theme } = useThemeContext();

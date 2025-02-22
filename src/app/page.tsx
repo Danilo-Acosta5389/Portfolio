@@ -1,9 +1,9 @@
-import About from "@/components/about";
-import Contact from "@/components/contact";
-import Header from "@/components/header";
-import Hero from "@/components/hero";
-import Preload from "@/components/preload";
-import Projects from "@/components/projects";
+import About from "@/components/about/about";
+import Contact from "@/components/contact/contact";
+import Header from "@/components/header/header";
+import Hero from "@/components/hero/hero";
+import Preload from "@/components/ui/preload";
+import Projects from "@/components//projects/projects";
 
 export default function Home() {
   return (
