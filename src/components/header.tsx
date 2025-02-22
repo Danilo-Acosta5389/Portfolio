@@ -27,7 +27,7 @@ export default function Header() {
   };
 
   useEffect(() => {
-    //console.log("Menu is open:", isMenuOpen);
+    console.log("Menu is open:", isMenuOpen);
   }, [isMenuOpen]);
 
   return (
@@ -36,16 +36,17 @@ export default function Header() {
         onMenuOpenChange={setIsMenuOpen}
         isMenuOpen={isMenuOpen}
         isBordered
+        isBlurred={true}
         // shouldHideOnScroll
         maxWidth="xl"
-        className={`${theme} bg-background text-foreground fixed z-40 top-[-0.5px] w-full`}
+        className={`${theme} text-foreground fixed z-40 w-full h-[64]`}
       >
         <div className="flex flex-row justify-between max-w-7xl w-full">
           <NavbarContent className=" flex flex-row">
             <NavbarBrand className=" px-0">
               <Link
                 href={"#top"}
-                className=" font-sans font-semibold text-inherit cursor-pointer px-0"
+                className=" font-sans font-semibold cursor-pointer pb-2"
               >
                 <span className=" text-green-600">root@DaniloAcosta</span>
                 <span className="text-foreground px-[1px]">:</span>
@@ -62,9 +63,9 @@ export default function Header() {
               {theme === "dark" ? <Sun /> : <Moon />}
             </NavbarItem>
             <NavbarMenuToggle
-              onClick={() => {
-                setIsMenuOpen(!isMenuOpen);
-              }}
+              // onClick={() => {
+              //   setIsMenuOpen(!isMenuOpen);
+              // }}
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               className="sm:hidden h-8 w-8"
             />
@@ -98,7 +99,7 @@ export default function Header() {
               {theme === "dark" ? <Sun /> : <Moon />}
             </NavbarItem>
           </NavbarContent>
-          <NavbarMenu className={`${theme} pt-3 space-y-1`}>
+          <NavbarMenu className={`${theme} pt-5  space-y-1`}>
             {menuItems.map((item, index) => (
               <NavbarMenuItem key={`${item}-${index}`}>
                 <Link
