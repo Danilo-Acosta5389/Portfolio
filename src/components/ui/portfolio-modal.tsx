@@ -14,9 +14,11 @@ import Image from "next/image";
 export default function PortfolioModal({
   className,
   card,
+  theme,
 }: {
   className: string;
   card: Card;
+  theme: string;
 }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
@@ -31,6 +33,7 @@ export default function PortfolioModal({
         placement="center"
         size="4xl"
         scrollBehavior="inside"
+        className={`${theme} text-foreground`}
       >
         <ModalContent>
           {(onClose) => (
@@ -83,8 +86,8 @@ export default function PortfolioModal({
                     </Link>
                   )}
                 </div>
-                <div className="sm:space-x-3 whitespace-nowrap">
-                  <Button color="danger" variant="light" onPress={onClose}>
+                <div className="sm:space-x-3 space-x-2 whitespace-nowrap">
+                  <Button color="danger" variant="faded" onPress={onClose}>
                     Close
                   </Button>
                   <Button
