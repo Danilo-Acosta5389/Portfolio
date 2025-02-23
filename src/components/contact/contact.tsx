@@ -7,6 +7,7 @@ import Form from "next/form";
 import { sendEmail } from "@/actions/contact-action";
 import { ActionResponse, ContactFormData } from "@/types/mail";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { motion } from "motion/react";
 
 const initialState: ActionResponse = {
   success: false,
@@ -74,13 +75,16 @@ export default function Contact() {
   }, [state]);
 
   return (
-    <section
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1 }}
       id="contact"
       className={`${theme} h-full w-full bg-background text-foreground font-mono flex flex-col justify-center items-center py-40`}
     >
       {submitted ? (
         <div className="flex flex-col justify-center items-center px-8 space-y-10">
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center text-center">
             <h1 className="text-2xl font-mono py-5">Message sent!</h1>
             <p>I will get back to you as soon as possible</p>
           </div>
@@ -150,6 +154,6 @@ export default function Contact() {
           </Form>
         </>
       )}
-    </section>
+    </motion.section>
   );
 }
