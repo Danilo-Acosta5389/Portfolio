@@ -31,7 +31,8 @@ export default function Projects() {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className=" bg-gradient-to-br from-slate-300 to-slate-500 bg-clip-text text-center text-3xl font-medium tracking-tight text-foreground md:text-4xl mb-28"
+          viewport={{ once: true }}
+          className=" bg-gradient-to-br from-slate-300 to-slate-500 bg-clip-text text-center text-3xl font-semibold tracking-tight text-foreground md:text-4xl mb-28"
         >
           {"Now, let's see the projects"}
         </motion.h1>
