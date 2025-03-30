@@ -39,7 +39,7 @@ export default function Header() {
         isBlurred={true}
         // shouldHideOnScroll
         maxWidth="xl"
-        className={`${theme} text-foreground fixed z-40 w-full h-[64]`}
+        className={`${theme} text-foreground fixed z-40 w-full h-[65]`}
       >
         <div className="flex flex-row justify-between max-w-7xl w-full">
           <NavbarContent className=" flex flex-row">
@@ -50,7 +50,7 @@ export default function Header() {
               >
                 <span className=" text-green-600">root@DaniloAcosta</span>
                 <span className="text-foreground px-[1px]">:</span>
-                <span className="  text-blue-700">~ $</span>
+                <span className="  text-blue-700">~$</span>
                 <span className=" animate-blink text-2xl font-extrabold pl-1">
                   _
                 </span>
