@@ -3,18 +3,18 @@
 import { useThemeContext } from "@/context/theme-context";
 import React from "react";
 import { motion } from "motion/react";
-import { InfiniteMovingLogos } from "@/components/ui/infinite-moving-logos";
 import { TypingEffectWhileInView } from "../ui/typing-effect";
 import { Accordion, AccordionItem } from "@heroui/accordion";
+import LogoCarousel from "../ui/carousel-logos";
 
 export default function About() {
   const { theme } = useThemeContext();
   const backendLiItems =
-    ".NET/C#, Node.js/Express, Next.js, SQL and NoSQL databases, REST-api, hosting with Linux, NGINX, Azure, AWS, ssl/tls";
+    ".NET/C#, Node.js, Express.js, Next.js, SQL and NoSQL databases, REST-api, hosting with Linux, NGINX, Azure, AWS, ssl/tls";
 
   const frontEndLiItems =
     "React, Next.js, JS, TS, HTML and CSS, Tailwind, Blazor, SEO-optimization";
-  const devOpsLiItems = "Azure, AWS, Github Actions. Azure DevOps, Docker";
+  const devOpsLiItems = "Azure, AWS, Github Actions, Azure DevOps, Docker";
 
   const otherLiItems =
     "Git, Github, Linux CLI and distros, Powershell, Hardware, Agile, Scrum, Trello";
@@ -119,12 +119,13 @@ export default function About() {
           </AccordionItem>
         </Accordion>
       </motion.div>
-      <div className="pt-20 pb-10">
+      <div className="py-20 ">
         <h1 className="text-3xl sm:text-4xl font-semibold">
           {"Stuff i've used"}
         </h1>
       </div>
-      <InfiniteMovingLogos direction="left" speed="slow" pauseOnHover={true} />
+      {/* <InfiniteMovingLogos direction="left" speed="slow" pauseOnHover={true} /> */}
+      <LogoCarousel />
     </section>
   );
 }
