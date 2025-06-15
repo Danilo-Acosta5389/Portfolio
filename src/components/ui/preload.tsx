@@ -28,7 +28,6 @@ export default function Preload() {
       }, 3000);
     }
   }, []);
-
   return (
     <AnimatePresence>
       {isVisible && (
@@ -37,7 +36,7 @@ export default function Preload() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className={clsx(
-            `${theme} pointer-events-none bg-background text-foreground w-screen h-screen fixed z-50 top-0 bottom-0 left-0 right-0 flex flex-col justify-center items-center`,
+            `${theme} pointer-events-none bg-background text-foreground w-screen h-screen fixed z-50 inset-0 flex flex-col justify-center items-center`,
             {
               hidden: !isVisible,
             }
