@@ -8,6 +8,7 @@ import { sendEmail } from "@/actions/contact-action";
 import { ActionResponse, ContactFormData } from "@/types/mail";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { motion } from "motion/react";
+import { TypingEffectWhileInView } from "../ui/typing-effect";
 
 const initialState: ActionResponse = {
   success: false,
@@ -94,11 +95,15 @@ export default function Contact() {
         </div>
       ) : (
         <>
-          <div className=" max-w-72  py-5 space-y-3 text-center">
-            <h1 className="font-bankGothic font-semibold text-3xl sm:text-4xl">
+          <div className="  py-5 space-y-10 text-center">
+            <TypingEffectWhileInView
+              className="font-bankGothic text-4xl sm:text-5xl font-semibold"
+              text="Make contact"
+            />
+            {/* <h1 className="font-bankGothic font-semibold text-3xl sm:text-4xl">
               Contact
-            </h1>
-            <p className="">
+            </h1> */}
+            <p className="max-w-xs">
               Anything i can do for you? Just leave me a messege!
             </p>
           </div>
