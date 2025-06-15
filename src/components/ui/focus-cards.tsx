@@ -88,7 +88,7 @@ export function FocusCards() {
       description:
         "This website was designed by my good friend and colleague, Felicia Avila Förnerud, and built by me. This project is a website for the company Vivo Nurse Consulting AB, which is based in Stockholm, Sweden. The website is simple yet functional; it is informative, and you can also email them using the form at the very end of the page. The website utilizes Google's ReCAPTCHA v3 to protect against bots. The project was made with Next.js and uses libraries such as TailwindCSS, Material UI, Motion, ShadCN/UI, google-recaptcha-v3, and more.",
       src: "/vivo-image.png",
-      website: "https://dev-vivoconsulting.ddns.net/",
+      website: "https://vivonurse.se/",
       github: "https://github.com/Danilo-Acosta5389/Vivo-Consulting-AB",
       collab: {
         name: "Felicia Förnerud",
