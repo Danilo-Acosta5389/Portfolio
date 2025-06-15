@@ -10,7 +10,7 @@ export default function Home() {
     <main className=" w-full h-full flex flex-col items-center justify-center">
       <Preload />
       <Header />
-      <div className="h-full w-full max-w-7xl">
+      <div className="h-full w-full">
         <Hero />
         <About />
         <Projects />
