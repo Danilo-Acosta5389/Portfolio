@@ -1,11 +1,13 @@
 "use client";
 
 import { useThemeContext } from "@/context/theme-context";
-import React from "react";
-import { motion } from "motion/react";
+import * as motion from "motion/react-client";
 import { TypingEffectWhileInView } from "../ui/typing-effect";
 import { Accordion, AccordionItem } from "@heroui/accordion";
 import LogoCarousel from "../ui/carousel-logos";
+import { Code, User, Settings, Handshake } from "lucide-react";
+import { Button } from "../ui/button";
+import Link from "next/link";
 
 export default function About() {
   const { theme } = useThemeContext();
@@ -18,65 +20,112 @@ export default function About() {
 
   const otherLiItems =
     "Git, Github, Linux CLI and distros, Powershell, Hardware, Agile, Scrum, Trello";
+
   return (
     <section
       id="about"
       className={`${theme} w-full py-20 mb-20 bg-background text-foreground flex flex-col items-center `}
     >
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        className=" max-w-4xl w-full p-5 space-y-5"
-      >
-        <div className="text-3xl sm:text-4xl font-semibold self-start">
-          {/* <FlipWords
-            words={[
-              "full stack developer",
-              "front end developer",
-              "back end developer",
-              "DevOps engeneer",
-              "security specialist",
-              "mobile apps developer",
-              "cloud engeneer",
-              "database architect",
-            ]}
-          /> */}
+      <div className=" max-w-4xl w-full p-5 space-y-5">
+        {/* About me title */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="text-4xl sm:text-5xl font-semibold self-start"
+        >
           <TypingEffectWhileInView
             className="font-bankGothic"
             text="About me"
           />
+        </motion.div>
+        {/* About me Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <motion.div
+            transition={{ duration: 1 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="rounded-2xl shadow-md p-6 border-white/20 border-2 bg-white/5 transition-transform hover:scale-[1.02] hover:shadow-lg"
+          >
+            <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
+              <Code className="w-5 h-5 text-foreground" /> What I Do
+            </h3>
+            <p className="text-foreground/90">
+              Need a modern, professional website or web app? I help businesses
+              and individuals bring their ideas to life online—with clean
+              design, fast performance, and reliable functionality.
+            </p>
+          </motion.div>
+
+          <motion.div
+            transition={{ duration: 1 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="rounded-2xl shadow-md p-6 border-white/20 border-2 bg-white/5 transition-transform hover:scale-[1.02] hover:shadow-lg"
+          >
+            <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
+              <User className="w-5 h-5 text-foreground" /> A Bit About Me
+            </h3>
+            <p className="text-foreground/90">
+              {"I'm"} Danilo Acosta, a developer with a passion for
+              problem-solving and security. I value clear communication,
+              efficient solutions, and making the process as smooth as possible
+              for you.
+            </p>
+          </motion.div>
+
+          <motion.div
+            transition={{ duration: 1 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="rounded-2xl shadow-md p-6 border-white/20 border-2 bg-white/5 transition-transform hover:scale-[1.02] hover:shadow-lg"
+          >
+            <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
+              <Settings className="w-5 h-5 text-foreground" /> Tailored
+              Solutions
+            </h3>
+            <p className="text-foreground/90">
+              Whether you’re launching a brand, improving your digital presence,
+              or streamlining internal tools, I’ll deliver a solution tailored
+              to your needs. From hosting setup to deployment—I’ve got you
+              covered.
+            </p>
+          </motion.div>
+          <motion.div
+            transition={{ duration: 1 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="rounded-2xl shadow-md p-6 border-white/20 border-2 bg-white/5 transition-transform hover:scale-[1.02] hover:shadow-lg"
+          >
+            <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
+              <Handshake className="w-5 h-5 text-foreground" />{" "}
+              {"Let's Work Together"}
+            </h3>
+            <p className="text-foreground/90">
+              {"Let’s"} make your digital project stress-free. Scroll down to
+              see what I can offer, and feel free to reach out if {"you're"}{" "}
+              ready to get started.
+            </p>
+            <Button
+              variant={"outline"}
+              className={`mt-4 ${
+                theme === "dark"
+                  ? "hover:bg-white hover:text-black"
+                  : "hover:bg-black hover:text-white"
+              }`}
+            >
+              <Link href={"#contact"}>Reach me here</Link>
+            </Button>
+          </motion.div>
         </div>
-        <p className="flex flex-col space-y-8">
-          <span>
-            Hey, I’m Danilo Acosta — full-stack developer, security enthusiast,
-            and all-around problem solver. I come from a background in physical
-            security and decided a few years back to change career paths and get
-            into software development. Now, I’m building sleek, secure, and
-            scalable apps with .NET, React, Next.js, and more.
-          </span>
-          <span>
-            I don’t just create web apps—I also configure any type of hosting
-            device, software, or cloud service. I set up CI/CD pipelines,
-            automate tasks, write scripts—you name it. I’m a big Linux fan and
-            love learning new technologies as I go. Lately, I’ve been diving
-            deep into cybersecurity and OT security because, let’s be
-            real—what’s the point of great code if it’s not secure?
-          </span>
-          <span>
-            Anyway, I’m glad you found your way here. Below, I’ll showcase what
-            I do best. If you have any inquiries, just send me a message at the
-            bottom of the page! Cheers.
-          </span>
-        </p>
-      </motion.div>
+      </div>
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
         className="w-full max-w-4xl px-5 flex flex-col items-center py-20"
       >
-        <h1 className="font-bankGothic text-3xl sm:text-4xl font-semibold pb-10">
+        <h1 className="font-bankGothic text-4xl sm:text-5xl font-semibold pb-10">
           {"What i offer"}
         </h1>
         <Accordion>
