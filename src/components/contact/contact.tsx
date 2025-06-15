@@ -80,12 +80,12 @@ export default function Contact() {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
       id="contact"
-      className={`${theme} h-full w-full bg-background text-foreground font-mono flex flex-col justify-center items-center py-40`}
+      className={`${theme} h-full w-full bg-background text-foreground  flex flex-col justify-center items-center py-40`}
     >
       {submitted ? (
         <div className="flex flex-col justify-center items-center px-8 space-y-10">
           <div className="flex flex-col justify-center items-center text-center">
-            <h1 className="text-2xl font-mono py-5">Message sent!</h1>
+            <h1 className="text-2xl  py-5">Message sent!</h1>
             <p>I will get back to you as soon as possible</p>
           </div>
           <div>
@@ -94,7 +94,7 @@ export default function Contact() {
         </div>
       ) : (
         <>
-          <div className=" max-w-72 font-mono py-5 space-y-3 text-center">
+          <div className=" max-w-72  py-5 space-y-3 text-center">
             <h1 className="text-3xl sm:text-4xl">Contact</h1>
             <p className="">
               Anything i can do for you? Just leave me a messege!

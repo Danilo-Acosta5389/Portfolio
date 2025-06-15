@@ -11,7 +11,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className={`${theme} h-fit w-full bg-background text-foreground font-mono flex flex-col justify-center items-center `}
+      className={`${theme} h-fit w-full bg-background text-foreground  flex flex-col justify-center items-center `}
     >
       {/* <motion.h1
         initial={{ opacity: 0 }}

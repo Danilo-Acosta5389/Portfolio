@@ -39,14 +39,14 @@ export default function Header() {
         isBlurred={true}
         // shouldHideOnScroll
         maxWidth="xl"
-        className={`${theme} text-foreground fixed z-40 w-full h-[65]`}
+        className={`${theme} font-sans text-foreground fixed z-40 w-full h-[64]`}
       >
         <div className="flex flex-row justify-between max-w-7xl w-full">
           <NavbarContent className=" flex flex-row">
             <NavbarBrand className=" px-0">
               <Link
                 href={"#top"}
-                className=" font-sans font-semibold cursor-pointer pb-2"
+                className=" font-semibold cursor-pointer pb-2"
               >
                 <span className=" text-green-600">root@DaniloAcosta</span>
                 <span className="text-foreground px-[1px]">:</span>
@@ -99,7 +99,7 @@ export default function Header() {
               {theme === "dark" ? <Sun /> : <Moon />}
             </NavbarItem>
           </NavbarContent>
-          <NavbarMenu className={`${theme} pt-5  space-y-1`}>
+          <NavbarMenu className={`${theme} font-sans pt-5  space-y-1`}>
             {menuItems.map((item, index) => (
               <NavbarMenuItem key={`${item}-${index}`}>
                 <Link

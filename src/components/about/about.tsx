@@ -21,7 +21,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className={`${theme} w-full py-20 mb-20 bg-background text-foreground font-mono flex flex-col items-center `}
+      className={`${theme} w-full py-20 mb-20 bg-background text-foreground flex flex-col items-center `}
     >
       <motion.div
         initial={{ opacity: 0 }}
@@ -29,7 +29,7 @@ export default function About() {
         transition={{ duration: 1 }}
         className=" max-w-4xl w-full p-5 space-y-5"
       >
-        <div className="text-3xl sm:text-4xl font-mono font-semibold self-start">
+        <div className="text-3xl sm:text-4xl font-semibold self-start">
           {/* <FlipWords
             words={[
               "full stack developer",
