@@ -50,7 +50,7 @@ export default function Header() {
               >
                 <span className=" text-green-600">root@DaniloAcosta</span>
                 <span className="text-foreground px-[1px]">:</span>
-                <span className="  text-blue-700">~ $</span>
+                <span className="  text-blue-700">~$</span>
                 <span className=" animate-blink text-2xl font-extrabold pl-1">
                   _
                 </span>
