@@ -19,11 +19,12 @@ export default function Preload() {
     if (!hasSeenIntro) {
       setIsVisible(true);
       setShowIntro(true);
-
+      document.body.classList.add("overflow-hidden");
       setTimeout(() => setShowIntro(false), 2000);
       setTimeout(() => {
         sessionStorage.setItem("hasSeenIntro", "true");
         setIsVisible(false);
+        document.body.classList.remove("overflow-hidden");
       }, 3000);
     }
   }, []);
