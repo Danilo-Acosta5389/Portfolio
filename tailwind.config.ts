@@ -1,4 +1,3 @@
-import { bankGothic } from "@/app/styles/fonts";
 import type { Config } from "tailwindcss";
 const svgToDataUri = require("mini-svg-data-uri");
 const { heroui } = require("@heroui/react");
