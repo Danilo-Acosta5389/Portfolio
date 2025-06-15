@@ -75,7 +75,7 @@ export default function PortfolioModal({
                 </Link>
               </ModalHeader>
 
-              <ModalBody>
+              <ModalBody className="font-sans">
                 <p>{card.description}</p>
               </ModalBody>
               <ModalFooter className="flex flex-row justify-between">
