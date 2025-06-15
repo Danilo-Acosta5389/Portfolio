@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useThemeContext } from "@/context/theme-context";
-
 import React from "react";
 import clsx from "clsx";
 
@@ -50,7 +49,7 @@ export default function Preload() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className=" text-2xl"
+                  className={` font-bankGothic text-3xl`}
                 >
                   {text.split("").map((letter, i) => (
                     <motion.span
