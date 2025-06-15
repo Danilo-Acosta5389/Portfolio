@@ -95,7 +95,9 @@ export default function Contact() {
       ) : (
         <>
           <div className=" max-w-72  py-5 space-y-3 text-center">
-            <h1 className="text-3xl sm:text-4xl">Contact</h1>
+            <h1 className="font-bankGothic font-semibold text-3xl sm:text-4xl">
+              Contact
+            </h1>
             <p className="">
               Anything i can do for you? Just leave me a messege!
             </p>

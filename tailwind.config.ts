@@ -1,3 +1,4 @@
+import { bankGothic } from "@/app/styles/fonts";
 import type { Config } from "tailwindcss";
 const svgToDataUri = require("mini-svg-data-uri");
 const { heroui } = require("@heroui/react");
@@ -30,6 +31,9 @@ export default {
             transform: "translate(calc(-50% - 0.5rem))",
           },
         },
+      },
+      fontFamily: {
+        bankGothic: ["var(--font-bank-gothic)", "sans-serif"],
       },
       animation: {
         blink: "blink 1s infinite",

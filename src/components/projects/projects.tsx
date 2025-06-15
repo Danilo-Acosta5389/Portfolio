@@ -32,9 +32,9 @@ export default function Projects() {
             ease: "easeInOut",
           }}
           viewport={{ once: true }}
-          className=" bg-gradient-to-br from-slate-300 to-slate-500 bg-clip-text text-center text-3xl font-semibold tracking-tight text-foreground md:text-4xl mb-28"
+          className=" bg-gradient-to-br from-slate-300 to-slate-500 bg-clip-text text-center text-3xl font-bankGothic font-semibold tracking-tight text-foreground md:text-4xl mb-28"
         >
-          {"Now, let's see the projects"}
+          {"Projects"}
         </motion.h1>
       </LampContainer>
       <FocusCards />

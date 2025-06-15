@@ -42,7 +42,10 @@ export default function About() {
               "database architect",
             ]}
           /> */}
-          <TypingEffectWhileInView text="About me" />
+          <TypingEffectWhileInView
+            className="font-bankGothic"
+            text="About me"
+          />
         </div>
         <p className="flex flex-col space-y-8">
           <span>
@@ -73,8 +76,8 @@ export default function About() {
         transition={{ duration: 1 }}
         className="w-full max-w-4xl px-5 flex flex-col items-center py-20"
       >
-        <h1 className="text-3xl sm:text-4xl font-semibold pb-10">
-          {"What i can do"}
+        <h1 className="font-bankGothic text-3xl sm:text-4xl font-semibold pb-10">
+          {"What i offer"}
         </h1>
         <Accordion>
           <AccordionItem
@@ -119,9 +122,9 @@ export default function About() {
           </AccordionItem>
         </Accordion>
       </motion.div>
-      <div className="py-20 ">
-        <h1 className="text-3xl sm:text-4xl font-semibold">
-          {"Stuff i've used"}
+      <div className="pt-20 pb-10">
+        <h1 className="font-bankGothic text-3xl sm:text-4xl font-semibold">
+          {"Technologies I use"}
         </h1>
       </div>
       {/* <InfiniteMovingLogos direction="left" speed="slow" pauseOnHover={true} /> */}
