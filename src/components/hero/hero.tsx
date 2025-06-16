@@ -30,7 +30,7 @@ export default function Hero() {
           className={`${theme} bg-background text-foreground w-full h-full flex flex-col justify-center items-center`}
         >
           <div className=" max-w-5xl w-full h-screen flex flex-col justify-between items-center">
-            <div>
+            <div className="">
               <span className=" sr-only">place holder</span>
             </div>
             <div className=" flex sm:flex-row flex-col sm:space-x-10 px-5 sm:pb-0">

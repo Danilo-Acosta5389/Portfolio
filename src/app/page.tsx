@@ -4,6 +4,7 @@ import Header from "@/components/header/header";
 import Hero from "@/components/hero/hero";
 import Preload from "@/components/ui/preload";
 import Projects from "@/components//projects/projects";
+import HeroSection from "@/components/hero/new-hero";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Preload />
       <Header />
       <div className="h-full w-full">
+        <HeroSection />
         <Hero />
         <About />
         <Projects />

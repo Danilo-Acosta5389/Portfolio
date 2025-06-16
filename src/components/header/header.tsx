@@ -17,6 +17,17 @@ export default function Header() {
   const { theme, setTheme } = useThemeContext();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuItems = ["home", "about", "projects", "contact"];
+  const [scrolled, setScrolled] = useState(false);
+  const [activated, setActivated] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 200); // Adjust 10px as needed
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
@@ -30,28 +41,38 @@ export default function Header() {
     console.log("Menu is open:", isMenuOpen);
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    setTimeout(() => setActivated(true), 250);
+  }, [scrolled]);
+
   return (
     <>
       <Navbar
         onMenuOpenChange={setIsMenuOpen}
         isMenuOpen={isMenuOpen}
-        isBordered
-        isBlurred={true}
+        isBordered={activated} // Adjust based on scroll
+        isBlurred={isMenuOpen ? true : scrolled ? true : false} // Adjust based on scroll
         // shouldHideOnScroll
         maxWidth="xl"
-        className={`${theme} font-sans text-foreground fixed z-40 w-full h-[64]`}
+        className={`${theme} font-sans text-foreground fixed z-40 w-full h-[64] animate-appearance-in ease-in duration-300 ${
+          !scrolled && !isMenuOpen && "bg-transparent border-b-0"
+        }`}
       >
         <div className="flex flex-row justify-between max-w-7xl w-full">
-          <NavbarContent className=" flex flex-row">
+          <NavbarContent
+            className={`flex flex-row ${
+              !scrolled && !isMenuOpen && "text-white"
+            }`}
+          >
             <NavbarBrand className=" px-0">
               <Link
                 href={"#top"}
                 className=" font-semibold cursor-pointer pb-2"
               >
                 <span className=" text-green-600">root@DaniloAcosta</span>
-                <span className="text-foreground px-[1px]">:</span>
-                <span className="  text-blue-700">~$</span>
-                <span className=" animate-blink text-2xl font-extrabold pl-1">
+                <span className=" px-[1px]">:</span>
+                <span className=" text-blue-700">~$</span>
+                <span className="animate-blink text-2xl font-extrabold pl-1">
                   _
                 </span>
               </Link>
@@ -71,7 +92,10 @@ export default function Header() {
             />
           </NavbarContent>
 
-          <NavbarContent className="hidden sm:flex gap-4 pt-2" justify="center">
+          <NavbarContent
+            className={`hidden sm:flex gap-4 pt-2 ${!scrolled && "text-white"}`}
+            justify="center"
+          >
             <NavbarItem>
               <Link color="foreground" href="#top">
                 home
@@ -99,7 +123,7 @@ export default function Header() {
               {theme === "dark" ? <Sun /> : <Moon />}
             </NavbarItem>
           </NavbarContent>
-          <NavbarMenu className={`${theme} font-sans pt-5  space-y-1`}>
+          <NavbarMenu className={`${theme} font-sans pt-5 space-y-1`}>
             {menuItems.map((item, index) => (
               <NavbarMenuItem key={`${item}-${index}`}>
                 <Link

@@ -3,23 +3,23 @@
 import { useThemeContext } from "@/context/theme-context";
 import * as motion from "motion/react-client";
 import { TypingEffectWhileInView } from "../ui/typing-effect";
-import { Accordion, AccordionItem } from "@heroui/accordion";
 import LogoCarousel from "../ui/carousel-logos";
 import { Code, User, Settings, Handshake } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import WhatIOffer from "./myServices";
 
 export default function About() {
   const { theme } = useThemeContext();
-  const backendLiItems =
-    ".NET/C#, Node.js, Express.js, Next.js, SQL and NoSQL databases, REST-api, hosting with Linux, NGINX, Azure, AWS, ssl/tls";
+  // const backendLiItems =
+  //   ".NET/C#, Node.js, Express.js, Next.js, SQL and NoSQL databases, REST-api, hosting with Linux, NGINX, Azure, AWS, ssl/tls";
 
-  const frontEndLiItems =
-    "React, Next.js, JS, TS, HTML and CSS, Tailwind, Blazor, SEO-optimization";
-  const devOpsLiItems = "Azure, AWS, Github Actions, Azure DevOps, Docker";
+  // const frontEndLiItems =
+  //   "React, Next.js, JS, TS, HTML and CSS, Tailwind, Blazor, SEO-optimization";
+  // const devOpsLiItems = "Azure, AWS, Github Actions, Azure DevOps, Docker";
 
-  const otherLiItems =
-    "Git, Github, Linux CLI and distros, Powershell, Hardware, Agile, Scrum, Trello";
+  // const otherLiItems =
+  //   "Git, Github, Linux CLI and distros, Powershell, Hardware, Agile, Scrum, Trello";
 
   return (
     <section
@@ -128,7 +128,8 @@ export default function About() {
         <h1 className="font-bankGothic text-4xl sm:text-5xl font-semibold pb-10">
           {"What i offer"}
         </h1>
-        <Accordion>
+        <WhatIOffer />
+        {/* <Accordion>
           <AccordionItem
             key="1"
             aria-label="Accordion 1"
@@ -169,8 +170,10 @@ export default function About() {
                 <li key={i}>{item}</li>
               ))}
           </AccordionItem>
-        </Accordion>
+        </Accordion> */}
       </motion.div>
+
+      {/* Carousell with technology logos */}
       <div className="pt-20 pb-10">
         <h1 className="font-bankGothic text-3xl sm:text-4xl font-semibold">
           {"Technologies I use"}
