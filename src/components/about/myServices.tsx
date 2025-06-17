@@ -50,7 +50,7 @@ export default function WhatIOffer() {
         return (
           <motion.div
             key={i}
-            className="rounded-2xl shadow-md p-6 border-white/20 border-2 bg-white/5 text-white/90 hover:shadow-lg transition-transform hover:scale-[1.02]"
+            className="rounded-2xl shadow-md p-6 border-white/20 border-2 bg-white/5 text-white/90 hover:shadow-lg transition-transform hover:scale-[1.02] select-none"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1, duration: 0.5, ease: "easeOut" }}
