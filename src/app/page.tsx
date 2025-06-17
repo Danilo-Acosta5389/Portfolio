@@ -1,10 +1,10 @@
 import About from "@/components/about/about";
 import Contact from "@/components/contact/contact";
 import Header from "@/components/header/header";
-import Hero from "@/components/hero/hero";
 import Preload from "@/components/ui/preload";
 import Projects from "@/components//projects/projects";
 import HeroSection from "@/components/hero/new-hero";
+import Services from "@/components/services/services";
 
 export default function Home() {
   return (
@@ -13,13 +13,10 @@ export default function Home() {
       <Header />
       <div className="h-full w-full">
         <HeroSection />
-        <Hero />
-        <About />
+        <Services />
         <Projects />
+        <About />
         <Contact />
-        {/* <div className=" h-screen w-full  bg-white bg-grid-black/[0.2] flex items-center justify-center">
-          <div className=" h-screen w-full pointer-events-none inset-0 flex items-center justify-center  bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-        </div> */}
       </div>
     </main>
   );

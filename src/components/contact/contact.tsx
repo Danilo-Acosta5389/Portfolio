@@ -82,7 +82,7 @@ export default function Contact() {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
       id="contact"
-      className={`${theme} h-full w-full bg-background text-foreground  flex flex-col justify-center items-center py-40`}
+      className={`${theme} h-full w-full bg-background text-foreground  flex flex-col justify-center items-center py-20 my-20`}
     >
       {submitted ? (
         <div className="flex flex-col justify-center items-center px-8 space-y-10">
@@ -96,19 +96,22 @@ export default function Contact() {
         </div>
       ) : (
         <>
-          <div className="  py-5 space-y-10 text-center">
+          <div className="  py-5 space-y-5 text-center flex flex-col justify-center items-center">
             <TypingEffectWhileInView
-              className="font-bankGothic text-4xl sm:text-5xl font-semibold"
+              className="font-bankGothic text-4xl sm:text-5xl md:text-7xl font-semibold"
               text="Make contact"
             />
             {/* <h1 className="font-bankGothic font-semibold text-3xl sm:text-4xl">
               Contact
             </h1> */}
-            <p className="max-w-xs">
+            <p className="max-w-xs text-center text-foreground/90 text-lg">
               Anything i can do for you? Just leave me a messege!
             </p>
           </div>
-          <Form action={action} className="w-full h-full max-w-xs space-y-2">
+          <Form
+            action={action}
+            className="w-full h-full max-w-xs md:max-w-md space-y-2"
+          >
             <Input
               disabled={isPending}
               defaultValue={state.inputs?.email}
@@ -130,6 +133,7 @@ export default function Contact() {
               type="name"
             />
             <Textarea
+              minRows={5}
               disabled={isPending}
               defaultValue={state.inputs?.message}
               isRequired
@@ -162,7 +166,19 @@ export default function Contact() {
           </Form>
         </>
       )}
-      <GlobeDemo />
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{
+          delay: 0.5,
+          duration: 1,
+          ease: "easeIn",
+        }}
+        viewport={{ once: true }}
+        className="w-full h-full"
+      >
+        <GlobeDemo />
+      </motion.div>
     </motion.section>
   );
 }

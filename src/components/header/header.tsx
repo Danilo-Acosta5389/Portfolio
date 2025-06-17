@@ -16,13 +16,13 @@ import Link from "next/link";
 export default function Header() {
   const { theme, setTheme } = useThemeContext();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuItems = ["home", "about", "projects", "contact"];
+  const menuItems = ["home", "services", "projects", "about", "contact"];
   const [scrolled, setScrolled] = useState(false);
   const [activated, setActivated] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 200); // Adjust 10px as needed
+      setScrolled(window.scrollY > 30); // Adjust 10px as needed
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -103,13 +103,18 @@ export default function Header() {
               </Link>
             </NavbarItem>
             <NavbarItem>
-              <Link color="foreground" href="#about">
-                about
+              <Link color="foreground" href="#services">
+                services
               </Link>
             </NavbarItem>
             <NavbarItem>
               <Link color="foreground" href="#projects">
                 projects
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Link color="foreground" href="#about">
+                about
               </Link>
             </NavbarItem>
             <NavbarItem>
