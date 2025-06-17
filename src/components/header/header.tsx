@@ -92,6 +92,7 @@ export default function Header() {
             />
           </NavbarContent>
 
+          {/* Desktop Menu */}
           <NavbarContent
             className={`hidden sm:flex gap-4 pt-2 ${!scrolled && "text-white"}`}
             justify="center"
@@ -123,14 +124,17 @@ export default function Header() {
               {theme === "dark" ? <Sun /> : <Moon />}
             </NavbarItem>
           </NavbarContent>
-          <NavbarMenu className={`${theme} font-sans pt-5 space-y-1`}>
+
+          {/* Mobile Menu sasdasdasd*/}
+          <NavbarMenu className={`${theme} pt-0`}>
+            <div className="pt-5"></div>
             {menuItems.map((item, index) => (
               <NavbarMenuItem key={`${item}-${index}`}>
                 <Link
                   onClick={() => {
                     setIsMenuOpen(!isMenuOpen);
                   }}
-                  className=" hover:text-red-700 w-full text-2xl text-foreground flex justify-end"
+                  className=" hover:text-red-700 w-full flex justify-end font-bankGothic text-4xl text-foreground"
                   href={`#${item}`}
                 >
                   {item}
