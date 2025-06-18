@@ -9,7 +9,7 @@ import { ActionResponse, ContactFormData } from "@/types/mail";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { motion } from "motion/react";
 import { TypingEffectWhileInView } from "../ui/typing-effect";
-import { GlobeDemo } from "../globe-demo";
+//import { GlobeDemo } from "../globe-demo";
 
 const initialState: ActionResponse = {
   success: false,
@@ -166,7 +166,7 @@ export default function Contact() {
           </Form>
         </>
       )}
-      <motion.div
+      {/*<motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{
@@ -178,7 +178,7 @@ export default function Contact() {
         className="w-full h-full"
       >
         <GlobeDemo />
-      </motion.div>
+      </motion.div>*/}
     </motion.section>
   );
 }
