@@ -48,7 +48,7 @@ export default function ProfileCard() {
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ delay: 2, duration: 1 }}
+              transition={{ delay: 1.5, duration: 1 }}
               viewport={{ once: true }}
               className="flex flex-row space-x-4 py-4"
             >
