@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Globe, Mail, Wrench, ShieldCheck, Search, Puzzle } from "lucide-react";
 
 const services = [
