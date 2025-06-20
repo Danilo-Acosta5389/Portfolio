@@ -2,8 +2,7 @@
 
 import { useThemeContext } from "@/context/theme-context";
 import { motion } from "motion/react";
-
-import WhatIOffer from "@/components/about/myServices";
+import ServicesCraousel from "../ui/services-carousel";
 
 export default function Services() {
   const { theme } = useThemeContext();
@@ -16,12 +15,13 @@ export default function Services() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="w-full max-w-4xl px-5 flex flex-col items-center py-10"
+        className="w-full px-5 flex flex-col items-center py-10"
       >
-        <h1 className="font-bankGothic text-4xl sm:text-5xl md:text-7xl font-semibold overflow-hidden text-center">
+        <h1 className="font-bankGothic text-4xl sm:text-5xl md:text-7xl font-semibold overflow-hidden text-center mb-5">
           {"What i offer"}
         </h1>
-        <WhatIOffer />
+        {/* <WhatIOffer /> */}
+        <ServicesCraousel />
       </motion.div>
     </section>
   );

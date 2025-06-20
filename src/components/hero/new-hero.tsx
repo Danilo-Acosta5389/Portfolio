@@ -16,6 +16,7 @@ export default function HeroSection() {
       <div
         className="absolute top-0 left-0 w-full h-full bg-cover bg-center "
         style={{ backgroundImage: `url('/bg-fallback.jpg')` }}
+        onLoad={() => setShowVideo(true)} // Show video when image loads
       />
       {/* Bilden visas automatiskt under videon om den inte laddar */}
       {/* Video Background (overlays image if loaded) */}
