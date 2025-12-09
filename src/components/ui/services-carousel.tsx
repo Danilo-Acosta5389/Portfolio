@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 
-const services = [
+export const services = [
   {
     icon: Globe,
     title: "Website Creation",
@@ -56,6 +56,7 @@ const services = [
       "✅ Speed and Core Web Vitals optimization",
     ],
     image: "https://images.pexels.com/photos/1194775/pexels-photo-1194775.jpeg",
+    imageCSS: "object-top top-[-50px]",
   },
   {
     icon: ShieldCheck,
@@ -104,10 +105,30 @@ const services = [
 export default function ServicesCraousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerPage] = useState(1);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
   //const [vw, setVw] = useState({ width: 0 });
   const { ref, inView } = useInView({
     threshold: 0.9,
   });
+
+  // Preload all images on mount
+  useEffect(() => {
+    const imagePromises = services.map((service) => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = service.image;
+        img.onload = resolve;
+        img.onerror = reject;
+      });
+    });
+
+    Promise.all(imagePromises)
+      .then(() => setImagesLoaded(true))
+      .catch((err) => {
+        console.error("Error preloading images:", err);
+        setImagesLoaded(true); // Still show content even if some images fail
+      });
+  }, []);
 
   // Calculate total pages
   const totalPages = Math.ceil(services.length / itemsPerPage);
@@ -146,19 +167,23 @@ export default function ServicesCraousel() {
     <div className="relative w-full max-w-7xl mx-auto flex flex-col items-center justify-center">
       {/* Items container with animation */}
       <div className="w-full flex items-center justify-center">
-        <div key={currentIndex} className="flex justify-center gap-5 text-xl">
-          <AnimatePresence>
-            {currentItems.map((service, index) => {
-              const Icon = service.icon;
-              return (
+        <div key={currentIndex} className="flex justify-center gap-5 text-xl ">
+          {currentItems.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <div key={index} className="relative w-full ">
+                <div className="lg:hidden overflow-hidden w-screen rounded-lg mb-5">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className=" absolute inset-0 w-full h-full object-cover opacity-30"
+                  />
+                </div>
                 <motion.div
                   key={`${startIndex + index}`}
                   variants={containerVariants}
                   initial={currentIndex > 0 ? "hiddenLeft" : "visible"}
                   animate="visible"
-                  exit={
-                    currentIndex < totalPages - 1 ? "hiddenRight" : "visible"
-                  }
                   drag="x"
                   dragConstraints={{ left: 0, right: 0 }}
                   onDragEnd={(event, info) => {
@@ -172,7 +197,7 @@ export default function ServicesCraousel() {
                 >
                   <div
                     key={index}
-                    className=" w-full h-full flex justify-between space-x-40 p-6"
+                    className=" w-full h-full flex justify-between space-x-40 p-6 z-30"
                   >
                     <div className="flex flex-col items-start gap-2 mb-4 w-full max-w-[500px]">
                       <h3
@@ -193,27 +218,28 @@ export default function ServicesCraousel() {
                         ))}
                       </ul>
                     </div>
-                    <div className="hidden lg:block">
+                    <div className="hidden lg:block overflow-hidden rounded-lg max-h-[550px] w-[600px]">
                       <img
                         src={`${service.image}`}
                         alt={service.title}
                         width={600}
-                        loading="lazy"
-                        className="rounded-lg "
+                        height={550}
+                        loading="eager"
+                        className="rounded-lg w-full h-full object-cover object-top"
                       />
                     </div>
                   </div>
                 </motion.div>
-              );
-            })}
-          </AnimatePresence>
+              </div>
+            );
+          })}
         </div>
       </div>
 
       {/* Navigation buttons */}
 
       <div
-        className={`flex items-center justify-between w-full max-w-32 mt-5 bottom-2 z-10 bg-background text-foreground opacity-70 rounded-lg transition-opacity duration-300 ${
+        className={`flex items-center justify-between w-full max-w-32 mt-5 bottom-2 z-50 bg-background text-foreground opacity-70 rounded-lg transition-opacity duration-300 ${
           inView ? "fixed" : "hidden"
         }`}
       >
