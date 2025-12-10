@@ -19,6 +19,7 @@ export interface ActionResponse {
 export type SendEmailDTO = {
   name: string;
   email: string;
+  number: string;
   message: string;
 };
 
@@ -32,6 +33,9 @@ export const mailSchema = z.object({
     .email("Var god ange e-post. ")
     .min(5, "Får inte vara kortare än 5 tecken. ")
     .max(100, "Får inte vara längre än 100 tecken. "),
+  number: z
+    .string({ message: "Ange telefonnummer" })
+    .max(20, "Får inte vara längre än 20 tecken"),
   message: z
     .string({ message: "Får inte lämnas tomt. " })
     .min(2, "Ange minst två tecken. ")

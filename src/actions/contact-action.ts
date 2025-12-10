@@ -35,6 +35,7 @@ export async function sendEmail(
       name: validatedData.data.name,
       email: validatedData.data.email,
       message: validatedData.data.message,
+      number: validatedData.data.number,
     };
 
     const result = await emailSender(emailDetails);
