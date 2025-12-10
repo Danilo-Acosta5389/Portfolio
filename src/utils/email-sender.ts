@@ -18,7 +18,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const name = "Hello World";
+const name = "daniloacosta.dev";
 
 const sender: Mail.Address = {
   name: name,
@@ -29,6 +29,10 @@ const recipients: Mail.Address[] = [
   {
     name: name,
     address: String(process.env.DEVELOPER),
+  },
+  {
+    name: name,
+    address: String(process.env.DEVELOPER2),
   },
 ];
 
