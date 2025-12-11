@@ -10,6 +10,7 @@ import {
 import { Card } from "./focus-cards";
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect } from "react";
 
 export default function PortfolioModal({
   className,
@@ -21,6 +22,14 @@ export default function PortfolioModal({
   theme: string;
 }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
+  useEffect(() => {
+    document.documentElement.classList.add("html-scroll-fix");
+
+    return () => {
+      document.documentElement.classList.remove("html-scroll-fix");
+    };
+  }, []);
 
   return (
     <>
