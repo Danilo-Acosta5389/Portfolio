@@ -164,80 +164,80 @@ export default function ServicesCraousel() {
     hiddenRight: { x: 10, opacity: 0 },
   };
   return (
-    <div className="relative w-full max-w-7xl mx-auto flex flex-col items-center justify-center">
+    <div className="w-full max-w-7xl overflow-x-clip flex flex-col lg:flex-row mx-auto items-center justify-center">
       {/* Items container with animation */}
-      <div className="w-full flex items-center justify-center">
-        <div key={currentIndex} className="flex justify-center gap-5 text-xl ">
-          {currentItems.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <div key={index} className="relative w-full ">
-                <div className="lg:hidden overflow-hidden w-screen rounded-lg mb-5">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className=" absolute inset-0 w-full h-full object-cover opacity-30"
-                  />
-                </div>
-                <motion.div
-                  key={`${startIndex + index}`}
-                  variants={containerVariants}
-                  initial={currentIndex > 0 ? "hiddenLeft" : "visible"}
-                  animate="visible"
-                  drag="x"
-                  dragConstraints={{ left: 0, right: 0 }}
-                  onDragEnd={(event, info) => {
-                    if (info.offset.x < -10) {
-                      handleNext();
-                    } else if (info.offset.x > 10) {
-                      handlePrevious();
-                    }
-                  }}
-                  className=" min-h-max rounded-2xl flex items-center justify-center cursor-grab active:cursor-grabbing"
+      <div key={currentIndex} className="flex justify-center gap-5 text-xl ">
+        {currentItems.map((service, index) => {
+          const Icon = service.icon;
+          return (
+            <div key={index} className="relative w-full ">
+              <motion.div
+                key={`${startIndex + index}`}
+                variants={containerVariants}
+                initial={currentIndex > 0 ? "hiddenLeft" : "visible"}
+                animate="visible"
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                onDragEnd={(event, info) => {
+                  if (info.offset.x < -10) {
+                    handleNext();
+                  } else if (info.offset.x > 10) {
+                    handlePrevious();
+                  }
+                }}
+                className=" min-h-max rounded-2xl flex items-center justify-center cursor-grab active:cursor-grabbing"
+              >
+                <div
+                  className="lg:hidden w-full rounded-lg mb-5 absolute top-0 left-0 h-screen bg-cover bg-center opacity-20 scale-150"
+                  style={{ backgroundImage: `url('${service.image}')` }}
                 >
-                  <div
-                    key={index}
-                    className=" w-full h-full flex justify-between space-x-40 p-6 z-30"
-                  >
-                    <div className="flex flex-col items-start gap-2 mb-4 w-full max-w-[500px]">
-                      <h3
-                        ref={ref}
-                        className="text-xl md:text-3xl text-foreground font-semibold mb-2 flex items-start gap-2 text-wrap"
-                      >
-                        <Icon className="md:w-8 md:h-8 h-5 w-5" />
-                        {service.title}
-                      </h3>
-                      <p className="text-foreground-600 text-xl md:text-2xl italic">
-                        {service.description}
-                      </p>
-                      <ul className="list-disc pl-5 text-foreground-600 mt-5 space-y-3 text-xl md:text-2xl">
-                        {service.features?.map((feature, i) => (
-                          <li className="list-none" key={i}>
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="hidden lg:block overflow-hidden rounded-lg max-h-[550px] w-[600px]">
-                      <img
-                        src={`${service.image}`}
-                        alt={service.title}
-                        width={600}
-                        height={550}
-                        loading="eager"
-                        className="rounded-lg w-full h-full object-cover object-top"
-                      />
-                    </div>
+                  {/* <img
+                  src={service.image}
+                  alt={service.title}
+                  className=" absolute inset-0 w-full h-full object-cover opacity-20 scale-150"
+                /> */}
+                </div>
+                <div
+                  key={index}
+                  className=" w-full h-full flex justify-between space-x-40 p-6 z-30"
+                >
+                  <div className="flex flex-col items-start gap-2 mb-4 w-full max-w-[500px]">
+                    <h3
+                      ref={ref}
+                      className="text-xl md:text-3xl text-foreground font-semibold mb-2 flex items-start gap-2 text-wrap"
+                    >
+                      <Icon className="md:w-8 md:h-8 h-5 w-5" />
+                      {service.title}
+                    </h3>
+                    <p className="text-foreground-600 text-xl md:text-2xl italic">
+                      {service.description}
+                    </p>
+                    <ul className="list-disc pl-5 text-foreground-600 mt-5 space-y-3 text-xl md:text-2xl">
+                      {service.features?.map((feature, i) => (
+                        <li className="list-none" key={i}>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                </motion.div>
-              </div>
-            );
-          })}
-        </div>
+                  <div className="hidden lg:block overflow-hidden rounded-lg h-[550px] w-[600px] pointer-events-none">
+                    <img
+                      src={`${service.image}`}
+                      alt={service.title}
+                      width={600}
+                      height={550}
+                      loading="eager"
+                      className="rounded-lg w-full h-full object-cover object-top"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          );
+        })}
       </div>
 
       {/* Navigation buttons */}
-
       <div
         className={`flex items-center justify-between w-full max-w-32 mt-5 bottom-2 z-50 bg-background text-foreground opacity-70 rounded-lg transition-opacity duration-300 ${
           inView ? "fixed" : "hidden"

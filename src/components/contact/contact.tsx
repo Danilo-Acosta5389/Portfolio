@@ -21,6 +21,7 @@ export default function Contact() {
   const [state, action, isPending] = useActionState(submitAction, initialState);
   const [submitted, setSubmitted] = useState(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
+
   async function submitAction(
     prevState: ActionResponse | null,
     formData: FormData
@@ -131,6 +132,15 @@ export default function Contact() {
               labelPlacement="inside"
               name="name"
               type="name"
+            />
+            <Input
+              disabled={isPending}
+              placeholder="Please enter a phone number and country code"
+              defaultValue={state.inputs?.number}
+              label="Phone Number (Optional)"
+              labelPlacement="inside"
+              name="number"
+              type="number"
             />
             <Textarea
               minRows={5}
